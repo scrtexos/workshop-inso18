@@ -1,8 +1,7 @@
 <?php
   session_name("cssid");
   session_start();
-  header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; ");
-  var_dump($_SESSION);
+  header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; img-src '*';");
   if(!isset($_SESSION['secret'])) {
     if($_COOKIE['admin-bypass-css'] == 1) {
       $_SESSION['secret'] = "INSO18";
@@ -71,9 +70,10 @@ if(isset($_POST['url'])){
           <div class="form-group">
             <button type="submit" class="btn btn-default">Submit</button>
           </div>
-
+        </form>
           <p>You wrote: <?php if(isset($_GET['message'])) {echo $_GET['message'];}?></p> 
-          <form id="my_form2" method="POST" action="">
+         
+        <form id="my_form2" method="POST" action="">
           <div class="form-group">
             <label for="message2" class="col-sm-2 control-label">Send URL to admin :</label>
             <input name="url" id="message2" class="form-control" placeholder="http://"/>
