@@ -1,7 +1,7 @@
 <?php
   session_name("cssid");
   session_start();
-  header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; img-src '*';");
+  header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; img-src http:;");
   if(!isset($_SESSION['secret'])) {
     if($_COOKIE['admin-bypass-css'] == 1) {
       $_SESSION['secret'] = "INSO18";
