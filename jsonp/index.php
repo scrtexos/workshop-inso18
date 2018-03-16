@@ -114,8 +114,8 @@ if(isset($_SESSION['logged']) && isset($_GET['action'])&& isset($_GET['callback'
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 7 - JSONP</h1>
-        <p class="lead">Get admin secret.</p>
+        <h1>JSONP</h1>
+        <p class="lead">Récupérez le secret de l'admin</p>
         <?php if(isset($_POST['message'])){ echo '<p>Thank you, message sent to the administrator !</p>'; } ?>
         <?php
           if(isset($_SESSION['logged'])){

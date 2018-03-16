@@ -47,8 +47,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>CSS Extraction</h1>
-        <p class="lead">Execute arbitrary JS code</p>
+        <h1>Extraction CSS</h1>
+        <p class="lead">Récupérez la valeur secrète de l'admin</p>
         Secret value: <input id="secret" type="text" disabled value="<?php echo $_SESSION['secret'];?>"/>
         <form id="my_form" method="POST" action="">
           <div class="form-group">

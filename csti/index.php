@@ -39,7 +39,7 @@
 
       <div class="starter-template">
         <h1>Client-Side Template Injection</h1>
-        <p class="lead">Execute arbitrary JS code</p>
+        <p class="lead">Exécutez du code arbitraire Javascript</p>
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="message" class="col-sm-2 control-label">Enter your message :</label>

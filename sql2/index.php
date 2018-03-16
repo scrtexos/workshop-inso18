@@ -63,7 +63,7 @@ if(isset($_GET['id'])){
   $query = "SELECT title, text FROM articles WHERE id=".$_GET['id'];
   $article = $db->querySingle($query, true);
   if($article==false){
-    echo "SELECT title, text FROM articles WHERE id=<b>".$_GET['id']."</b>";
+    echo "Error";//"SELECT title, text FROM articles WHERE id=<b>".$_GET['id']."</b>";
   }
   $db->close();
 }
@@ -109,8 +109,8 @@ if(isset($_GET['id'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 7 bis - Injection SQL</h1>
-        <p class="lead">Dump secret.</p>
+        <h1>Injection SQL #2</h1>
+        <p class="lead">Récupérez le secret stocké en base de données</p>
       </div>
       <div class="row">
         <h2><?php echo @htmlentities($article['title']); ?></h2>

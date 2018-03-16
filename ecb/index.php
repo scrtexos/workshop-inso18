@@ -98,8 +98,8 @@ if(isset($_COOKIE['my_session'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 4 - ECB</h1>
-        <p class="lead">Login with admin account.</p>
+        <h1>Chiffrement ECB</h1>
+        <p class="lead">Connectez-vous au compte admin</p>
         <?php
           if($logged==1){
         ?>

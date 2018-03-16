@@ -39,8 +39,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 3 - Weak password</h1>
-        <p class="lead">Connect to the web admin interface.</p>
+        <h1>Mots de passe</h1>
+        <p class="lead">Connectez-vous à l'interface d'administration</p>
       </div>
 
     </div><!-- /.container -->

@@ -138,8 +138,8 @@ if(isset($_GET['token']) && !empty($_GET['token'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 5 - PRNG</h1>
-        <p class="lead">Access admin account</p>
+        <h1>PRNG</h1>
+        <p class="lead">Accédez au compte admin</p>
         <p><?php echo $message; ?></p>
         <?php 
         if($username){

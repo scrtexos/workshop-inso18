@@ -70,8 +70,8 @@ $db->close();
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 5 - XSS</h1>
-        <p class="lead">Deface the website with your beautiful banner.</p>
+        <h1>Cross-Site Scripting #1</h1>
+        <p class="lead">Affichez une image au sein de la page, puis redirigez tous les participants vers un autre site</p>
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="username" class="col-sm-2 control-label">Username :</label>

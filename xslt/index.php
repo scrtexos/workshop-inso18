@@ -39,7 +39,7 @@
 
       <div class="starter-template">
         <h1>XML Transformations</h1>
-        <p class="lead">Execute arbitrary PHP code</p>
+        <p class="lead">Exécutez du code PHP arbitraire</p>
         <p>This ATOM reader is coded in PHP5+XSLT, using libxslt.</p>
         <form action="" method="GET">
           <input type="text" name="url" value="" placeholder="cdcatalog.xml"/>
@@ -49,7 +49,7 @@
         <?php
 
           // Get parameters
-        if(isset($_GET['xml'])) {
+        if(isset($_GET['url'])) {
           $url = $_GET['url'];
           $xsl = $_GET['xsl'];
 

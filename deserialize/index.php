@@ -66,8 +66,8 @@ if(isset($_GET['hl'])) {
     <div class="container">
 
       <div class="starter-template">
-        <h1>Object Deserialization</h1>
-        <p class="lead">Execute arbitrary PHP code</p>
+        <h1>Désérialization d'objets</h1>
+        <p class="lead">Exécutez du code PHP arbitraire</p>
         Hint: <a href="?hl=1">View Source</a>
       </div>
 

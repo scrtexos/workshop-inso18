@@ -1,6 +1,6 @@
 <?php
 if(!isset($_GET['title'])){
-  header('Location: ./?title=XSS%20bis');
+  header('Location: ./?title=Plus+de+XSS');
 }
 if(isset($_POST['message'])){
 
@@ -56,8 +56,8 @@ if(isset($_POST['message'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 5 bis - <?php echo $_GET['title']; ?></h1>
-        <p class="lead">Steal admin cookie.</p>
+        <h1>Cross-Site Scripting #2 - <?php echo $_GET['title']; ?></h1>
+        <p class="lead">Récupérez le cookie de l'admin</p>
         <?php if(isset($_POST['message'])){ echo '<p>Thank you, message sent to the administrator !</p>'; } ?>
         <form id="my_form" method="POST" action="">
           <div class="form-group">

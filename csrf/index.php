@@ -69,10 +69,10 @@ if(isset($_SESSION['logged'])){
   $db->close();
 }
 
-if(isset($_SESSION['logged']) && isset($_GET['password1']) && isset($_GET['password2']) && $_GET['password1']===$_GET['password2']){
+if(isset($_SESSION['logged']) && isset($_POST['password1']) && isset($_POST['password2']) && $_POST['password1']===$_POST['password2']){
   $message=" your password has been changed !";
   $db = new SQLite3($dbname);
-  $password_hash = hash("sha256", $_GET['password1']);
+  $password_hash = hash("sha256", $_POST['password1']);
   $query = "UPDATE users SET password='".$password_hash."' WHERE id=".$_SESSION['logged'];
   $db->exec($query);
   $db->close();
@@ -120,14 +120,14 @@ if(isset($_SESSION['logged']) && isset($_GET['password1']) && isset($_GET['passw
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 9 - CSRF</h1>
-        <p class="lead">Login with admin account.</p>
+        <h1>Cross-Site Request Forgery</h1>
+        <p class="lead">Connectez-vous au compte admin</p>
         <?php if(isset($_POST['message'])){ echo '<p>Thank you, message sent to the administrator !</p>'; } ?>
         <?php
           if(isset($_SESSION['logged'])){
         ?>
         <p>Hello <?php echo htmlentities($username).$message; ?></p>
-        <form id="my_form" method="GET" action="">
+        <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="password1" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">

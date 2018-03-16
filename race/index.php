@@ -89,7 +89,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
       <div class="starter-template">
         <h1>Race condition</h1>
-        <p class="lead">Get admin access (<a href="?hl=1">view source</a>)</p>
+        <p class="lead">Obtenez un accès admin (<a href="?hl=1">view source</a>)</p>
         <?php
           if(isset($_SESSION['admin'])){
             if($_SESSION['admin'] == 1){

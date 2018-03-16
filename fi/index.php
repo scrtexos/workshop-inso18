@@ -49,8 +49,8 @@ include($lang.'.php');
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 7 - LFI</h1>
-        <p class="lead">Pwn !</p>
+        <h1>Inclusion de fichiers</h1>
+        <p class="lead">Exécutez du code PHP arbitraire</p>
         <a href="?lang=en">EN</a> - <a href="?lang=fr">FR</a> - <a href="?lang=cl">Clingon</a>
         <p><?php echo $message; ?></p>
       </div>

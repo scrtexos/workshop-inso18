@@ -74,8 +74,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 7 - Injection SQL</h1>
-        <p class="lead">Dump admin password.</p>
+        <h1>Injection SQL #1</h1>
+        <p class="lead">Contournez l'authentification, puis obtenez le mot de passe de l'admin</p>
         <?php
           if($logged==1){
         ?>

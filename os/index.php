@@ -43,8 +43,8 @@ if(isset($_POST['ip'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 6 - Command injection</h1>
-        <p class="lead">Get a shell on the vulnerable website.</p>
+        <h1>Injection de commandes</h1>
+        <p class="lead">Récupérez le contenu du fichier /etc/passwd</p>
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <b>Ping</b> : <input type="text" class="form-control" name="ip" id="ip" placeholder="IP address">

@@ -60,8 +60,8 @@ else{
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 3 - XXE</h1>
-        <p class="lead">Access admin panel</p>
+        <h1>XML eXternal Entities</h1>
+        <p class="lead">Accédez au panel d'administration</p>
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="product" class="col-sm-2 control-label">Product</label>

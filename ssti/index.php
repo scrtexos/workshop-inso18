@@ -58,7 +58,7 @@ else {
 
       <div class="starter-template">
         <h1>Server-Side Template Injection</h1>
-        <p class="lead">Execute arbitrary PHP code</p>
+        <p class="lead">Exécutez du code PHP arbitraire</p>
 
         <p>Send Message: <form action="" method="GET"><input type="text" name="message"/><input type="submit" value="Send"/></form></p>
 

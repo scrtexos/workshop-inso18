@@ -209,8 +209,8 @@ if(isset($_GET['id'])){
     <div class="container">
 
       <div class="starter-template">
-        <h1>Exercice 4 - Direct object access</h1>
-        <p class="lead">Discover secret informations</p>
+        <h1>Contrôle d'accès #1</h1>
+        <p class="lead">Découvrir des informations secrètes dans la base de données.</p>
         <?php
           if(isset($_SESSION['logged'])){
         ?>
