@@ -1,3 +1,53 @@
+<?php
+if(isset($_GET['hl'])) {
+  highlight_file("index.php");
+  die();
+}
+session_name(session_name().'race');
+session_start();
+if(isset($_GET['logout'])){
+  unset($_SESSION['logged']);
+  session_destroy();
+  header('Location: ./');
+}
+$dbname = 'db/.htdb.db';
+
+function create_user_if_not_exist($username, $password){
+  global $dbname;
+  $db = new SQLite3($dbname);
+  $safe_username = $db->escapeString($username);
+  $password_hash = hash("sha256", $password);
+  $query = "SELECT id FROM users WHERE username='".$safe_username."'";
+  $result = (int)$db->querySingle($query);
+  if($result == 0){
+    $query = "INSERT INTO users (username, password) VALUES ('".$safe_username."', '".$password_hash."')";
+    $db->exec($query);
+    sleep(2);
+    $query = "UPDATE users SET admin=0 WHERE username='".$safe_username."'";
+    $db->exec($query);
+  }
+  $db->close();
+}
+
+$tbl_users = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL, username TEXT, password TEXT, admin INTEGER DEFAULT 1);";
+
+$db = new SQLite3($dbname);
+$db->exec($tbl_users);
+$db->close();
+if(isset($_POST['username']) && isset($_POST['password'])){
+  print "login";
+  create_user_if_not_exist($_POST['username'], $_POST['password']);
+  $db = new SQLite3($dbname);
+  $safe_username = $db->escapeString($_POST['username']);
+  $password_hash = hash("sha256", $_POST['password']);
+  $query = "SELECT admin FROM users WHERE username='".$safe_username."' and password='".$password_hash."'";
+  $result = (int)$db->querySingle($query);
+  $_SESSION['admin']=$result;
+  $db->close();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,38 +88,38 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>XML Transformations</h1>
-        <p class="lead">Execute arbitrary PHP code</p>
-        <p>This ATOM reader is coded in PHP5+XSLT, using libxslt.</p>
-        <form action="" method="GET">
-          <input type="text" name="url" value="" placeholder="cdcatalog.xml"/>
-          <input type="text" name="xsl" value="" placeholder="cdcatalog.xsl"/>
-          <input type="submit" value="Parse XML"/>
+        <h1>Race condition</h1>
+        <p class="lead">Get admin access (<a href="?hl=1">view source</a>)</p>
+        <?php
+          if(isset($_SESSION['admin'])){
+            if($_SESSION['admin'] == 1){
+              echo '<p>Hello Administrator</p>';
+            }
+            else{
+              echo '<p>Hello simple user</p>';
+            }
+            echo '<button type="button" class="btn btn-default" onclick="javascript:document.location=\'./?logout=1\'">Logout</button>';
+          }
+          else{
+        ?>
+        <form id="my_form" method="POST" action="">
+          <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
         </form>
         <?php
-
-          // Get parameters
-        if(isset($_GET['xml'])) {
-          $url = $_GET['url'];
-          $xsl = $_GET['xsl'];
-
-          // Load ATOM file
-          $xmldoc = new DOMDocument();
-          $xmldoc->load( $url );
-
-          // Load XSLT file
-          $xsldoc = new DOMDocument();
-          $xsldoc->load( $xsl );
-
-          // Register PHP functions as XSLT extensions
-          $xslt = new XSLTProcessor();
-          $xslt->registerPhpFunctions();
-
-          // Import the stylesheet
-          $xslt->importStylesheet( $xsldoc );
-
-          // Transform and print
-          print $xslt->transformToXML( $xmldoc );
         }
         ?>
       </div>
