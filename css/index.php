@@ -72,7 +72,7 @@ if(isset($_POST['url'])){
             <button type="submit" class="btn btn-default">Submit</button>
           </div>
 
-          <p>You wrote: <?php if(isset($_GET['message'])) {echo htmlentities($_GET['message']);}?></p> 
+          <p>You wrote: <?php if(isset($_GET['message'])) {echo $_GET['message'];}?></p> 
           <form id="my_form2" method="POST" action="">
           <div class="form-group">
             <label for="message2" class="col-sm-2 control-label">Send URL to admin :</label>
