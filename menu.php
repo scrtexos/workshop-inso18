@@ -1,7 +1,7 @@
 <?php
 $find = preg_match('#/([0-9a-z]+)/#',$_SERVER['REQUEST_URI'],$ex);
 if($find){
-  $exercice = $ex[1];
+  $num = $ex[1];
 }
 else{
   $num = 'home';
@@ -31,10 +31,10 @@ else{
             <li <?php if($num=='password') { echo 'class="active"'; } ?>><a href="/password/">Mots de passe</a></li>
             <li <?php if($num=='prng') { echo 'class="active"'; } ?>><a href="/prng/">PRNG</a></li>
             <li <?php if($num=='csrf') { echo 'class="active"'; } ?>><a href="/csrf/">CSRF</a></li>
-            <li <?php if($num=='filejack') { echo 'class="active"'; } ?>><a href="/filejack/">File Jacking</a></li>
+            <li <?php if($num=='filejack') { echo 'class="active"'; } ?>><a href="/filejack/" target="_blank">File Jacking</a></li>
             <li <?php if($num=='xss1') { echo 'class="active"'; } ?>><a href="/xss1/">XSS #1</a></li>
             <li <?php if($num=='xss2') { echo 'class="active"'; } ?>><a href="/xss2/">XSS #2</a></li>
-            <li <?php if($num=='twittbook') { echo 'class="active"'; } ?>><a href="/twittbook/">Vers XSS</a></li>
+            <li <?php if($num=='twittbook') { echo 'class="active"'; } ?>><a href="/twittbook/"  target="_blank">Vers XSS</a></li>
             <li <?php if($num=='csti') { echo 'class="active"'; } ?>><a href="/csti/">CSTI</a></li>
             <li <?php if($num=='jsonp') { echo 'class="active"'; } ?>><a href="/jsonp/">JSONP</a></li>
             <li <?php if($num=='css') { echo 'class="active"'; } ?>><a href="/css/">CSS</a></li>
