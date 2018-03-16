@@ -4,9 +4,22 @@
   header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; ");
   var_dump($_SESSION);
   if(!isset($_SESSION['secret'])) {
-    $_SESSION['secret'] = bin2hex(openssl_random_pseudo_bytes(8));
+    if($_COOKIE['admin-bypass-css'] == 1) {
+      $_SESSION['secret'] = "INSO18";
+    }
+    else {
+      $_SESSION['secret'] = bin2hex(openssl_random_pseudo_bytes(8));
+    }
   }
+if(isset($_POST['url'])){
 
+  if(filter_var($_POST['url'], FILTER_VALIDATE_URL)){
+//print(str_replace('\'','\\\'',$msg));
+    $domain = parse_url($_POST['url'],PHP_URL_HOST);
+    $cmd = 'phantomjs bot.js "'.$_POST['url'].'" '.$domain;
+    shell_exec($cmd);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +63,7 @@
         <h1>Extraction CSS</h1>
         <p class="lead">Récupérez la valeur secrète de l'admin</p>
         Secret value: <input id="secret" type="text" disabled value="<?php echo $_SESSION['secret'];?>"/>
-        <form id="my_form" method="POST" action="">
+        <form id="my_form" method="GET" action="">
           <div class="form-group">
             <label for="message" class="col-sm-2 control-label">Enter your message :</label>
             <textarea name="message" id="message" class="form-control" rows="3"></textarea>
@@ -59,8 +72,15 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </div>
 
-          <p>You wrote: <?php if(isset($_POST['message'])) {echo $_POST['message'];}?></p> 
-          
+          <p>You wrote: <?php if(isset($_GET['message'])) {echo htmlentities($_GET['message']);}?></p> 
+          <form id="my_form2" method="POST" action="">
+          <div class="form-group">
+            <label for="message2" class="col-sm-2 control-label">Send URL to admin :</label>
+            <input name="url" id="message2" class="form-control" placeholder="http://"/>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
         </form>
       </div>
 
