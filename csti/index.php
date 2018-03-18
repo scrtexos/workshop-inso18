@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST['message_admin'])){
+
+  //$message = explode('title=', $_POST['message'], 2);
+  $domain = parse_url($_POST['message'],PHP_URL_HOST);
+  $msg=$_POST['message'];
+  //$find = preg_match("#(http://[^ ]+)#",$_POST['message'], $message);
+  if($find == 1){
+//print(str_replace('\'','\\\'',$msg));
+    $cmd = 'phantomjs bot.js "'.$msg.'" '.$domain;
+   //print($cmd);
+    shell_exec($cmd);
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,8 +55,8 @@
 
       <div class="starter-template">
         <h1>Client-Side Template Injection</h1>
-        <p class="lead">Exécutez du code arbitraire Javascript</p>
-        <form id="my_form" method="POST" action="">
+        <p class="lead">Récupérez le cookie de l'admin</p>
+        <form id="my_form" method="GET" action="">
           <div class="form-group">
             <label for="message" class="col-sm-2 control-label">Enter your message :</label>
             <textarea name="message" id="message" class="form-control" rows="3"></textarea>
@@ -50,7 +66,24 @@
           </div>
           <div ng-app="">
 
-          <p>You wrote: <?php if(isset($_POST['message'])) {echo htmlentities($_POST['message']);}?></p> 
+          <p>You wrote: <?php if(isset($_GET['message'])) {echo htmlentities($_GET['message']);}?></p> 
+
+          </div>
+        </form>
+      </div>
+
+      <div class="starter-template">
+        <h1>Client-Side Template Injection</h1>
+        <p class="lead">Exécutez du code arbitraire Javascript</p>
+        <form id="my_form" method="POST" action="">
+          <div class="form-group">
+            <label for="message" class="col-sm-2 control-label">Send URL to admin :</label>
+            <textarea name="message" id="message_admin" class="form-control" rows="1"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Send to admin</button>
+          </div>
+          <div ng-app="">
 
           </div>
         </form>
