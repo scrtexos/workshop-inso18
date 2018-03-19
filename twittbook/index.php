@@ -40,7 +40,7 @@ Say something here : <input id="talk" type="text" onkeyup="shareit(event)"/><inp
 </div>
 <br/>
 <div id="footer">
-&copy; SCRT Information Technology 2009
+&copy; SCRT Information Technology 2018
 </div>
 </div>
 <script>

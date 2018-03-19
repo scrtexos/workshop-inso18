@@ -73,7 +73,7 @@ if(isset($_POST['message_admin'])){
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="message" class="col-sm-2 control-label">Send URL to admin :</label>
-            <textarea name="message" id="message_admin" class="form-control" rows="1"></textarea>
+            <textarea name="message_admin" id="message_admin" class="form-control" rows="1"></textarea>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-default">Send to admin</button>
