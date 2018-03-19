@@ -1,16 +1,13 @@
 <?php
 if(isset($_POST['message_admin'])){
-
-  //$message = explode('title=', $_POST['message'], 2);
-  $domain = parse_url($_POST['message'],PHP_URL_HOST);
-  $msg=$_POST['message'];
-  //$find = preg_match("#(http://[^ ]+)#",$_POST['message'], $message);
-  if($find == 1){
+  $msg=$_POST['message_admin'];
+  if(filter_var($_POST['message_admin'], FILTER_VALIDATE_URL)){
 //print(str_replace('\'','\\\'',$msg));
-    $cmd = 'phantomjs bot.js "'.$msg.'" '.$domain;
-   //print($cmd);
+    $domain = parse_url($_POST['message_admin'],PHP_URL_HOST);
+    $cmd = 'phantomjs bot.js "'.$_POST['message_admin'].'" '.$domain;
     shell_exec($cmd);
   }
+
 }
 ?>
 
@@ -73,8 +70,6 @@ if(isset($_POST['message_admin'])){
       </div>
 
       <div class="starter-template">
-        <h1>Client-Side Template Injection</h1>
-        <p class="lead">Exécutez du code arbitraire Javascript</p>
         <form id="my_form" method="POST" action="">
           <div class="form-group">
             <label for="message" class="col-sm-2 control-label">Send URL to admin :</label>
