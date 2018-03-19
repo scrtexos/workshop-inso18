@@ -12,7 +12,7 @@ if(isset($_GET['hl'])) {
     }
     function __destruct() {
       if(isset($this->ip) && isset($this->ua)) {
-        file_put_contents("logs/".$this->$ip,"Access to page with user agent : " . $this->$ua . "\n");
+        file_put_contents("logs/".$this->ip,"Access to page with user agent : " . $this->ua . "\n");
       }
     }
   }
