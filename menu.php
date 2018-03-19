@@ -34,7 +34,7 @@ else{
             <li <?php if($num=='filejack') { echo 'class="active"'; } ?>><a href="/filejack/" target="_blank">File Jacking</a></li>
             <li <?php if($num=='xss1') { echo 'class="active"'; } ?>><a href="/xss1/">XSS #1</a></li>
             <li <?php if($num=='xss2') { echo 'class="active"'; } ?>><a href="/xss2/">XSS #2</a></li>
-            <li <?php if($num=='uxss') { echo 'class="active"'; } ?>><a href="/xss2/">uXSS</a></li>
+            <li <?php if($num=='uxss') { echo 'class="active"'; } ?>><a href="/uxss/">uXSS</a></li>
             <li <?php if($num=='twittbook') { echo 'class="active"'; } ?>><a href="/twittbook/"  target="_blank">Vers XSS</a></li>
             <li <?php if($num=='csti') { echo 'class="active"'; } ?>><a href="/csti/">CSTI</a></li>
             <li <?php if($num=='jsonp') { echo 'class="active"'; } ?>><a href="/jsonp/">JSONP</a></li>
