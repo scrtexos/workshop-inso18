@@ -3,7 +3,7 @@ if(isset($_GET['hl'])) {
   highlight_file("index.php");
   die();
 }
-session_name(session_name().'race');
+session_name(session_name().'_race');
 session_start();
 if(isset($_GET['logout'])){
   unset($_SESSION['logged']);

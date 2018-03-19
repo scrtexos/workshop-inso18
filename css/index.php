@@ -1,5 +1,5 @@
 <?php
-  session_name("cssid");
+  session_name(session_name() . "_css");
   session_start();
   header("Content-Security-Policy: style-src * 'unsafe-inline'; default-src 'self'; img-src http:;");
   if(!isset($_SESSION['secret'])) {

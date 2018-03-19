@@ -94,7 +94,7 @@ array_push($secret_quotes,
 		"content" => "* SECRET * This message should not be read by anybody..."
 	)
 );
-session_name(session_name().'_exo4');
+session_name(session_name().'_access1');
 session_start();
 if(isset($_GET['logout'])){
   unset($_SESSION['logged']);

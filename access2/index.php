@@ -1,5 +1,5 @@
 <?php
-session_name(session_name().'_exo4_2');
+session_name(session_name().'_access2');
 session_start();
 if(isset($_GET['logout'])){
   unset($_SESSION['logged']);

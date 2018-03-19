@@ -1,5 +1,5 @@
 <?php
-session_name(session_name().'_exo2_5');
+session_name(session_name().'_prng');
 session_start();
 if(isset($_GET['logout'])){
   unset($_SESSION['logged']);

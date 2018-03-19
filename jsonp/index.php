@@ -1,5 +1,5 @@
 <?php
-session_name(session_name().'_exo2_9');
+session_name(session_name().'_jsonp');
 session_start();
 if(isset($_GET['logout'])){
   unset($_SESSION['logged']);
