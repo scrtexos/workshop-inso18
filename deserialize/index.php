@@ -7,8 +7,8 @@ if(isset($_GET['hl'])) {
     public $ip;
     public $ua;
     function __construct($ip,$ua) {
-      $this->$ip = $ip;
-      $this->$ua = $ua;
+      $this->ip = $ip;
+      $this->ua = $ua;
     }
     function __destruct() {
       if(isset($this->ip) && isset($this->ua)) {
