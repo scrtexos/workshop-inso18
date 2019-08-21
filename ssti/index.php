@@ -8,9 +8,9 @@ $smarty = new Smarty();
 $smarty->setTemplateDir('./')->setCompileDir('/tmp/templates_c')->setCacheDir('/tmp/templates_cache');
 
 if(!isset($_GET['template'])) {
-	$template = "
+	$template = '
 		<p>Received message : {$message}</p>
-	";
+	';
 }
 else {
 	$template = $_GET['template'];
