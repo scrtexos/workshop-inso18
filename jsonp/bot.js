@@ -15,11 +15,12 @@ page.customHeaders = {
 };
 
 page.open(address, function(status) {
+    setTimeout('phantom.exit()',2000);
     console.log("open "+address);
 });
-
+/*
 page.onLoadFinished = function(status) {
     console.log(page.content);
     console.log('Status: ' + status);
     phantom.exit();
-};
+};*/

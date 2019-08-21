@@ -17,5 +17,6 @@ phantom.addCookie({
 
 
 page.open(address, function(status) {
+    setTimeout('phantom.exit()',2000);
     phantom.exit();
 });

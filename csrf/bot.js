@@ -17,13 +17,14 @@ phantom.addCookie({
 });
 
 page.open(address, function(status) {
+    setTimeout('phantom.exit()',2000);
     console.log("open "+address);    
 });
-
+/*
 page.onLoadFinished = function(status) {
     console.log('Status: ' + status);
     nbpage+=1;
     if(nbpage==2){
         phantom.exit();
     }
-};
+};*/
