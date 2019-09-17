@@ -25,6 +25,7 @@ else{
             <li <?php if($num=='xxe') { echo 'class="active"'; } ?>><a href="/xxe/">XXE</a></li>
             <li <?php if($num=='xslt') { echo 'class="active"'; } ?>><a href="/xslt/">XSLT</a></li>
             <li <?php if($num=='ssti') { echo 'class="active"'; } ?>><a href="/ssti/">SSTI</a></li>
+            <li <?php if($num=='ssrf') { echo 'class="active"'; } ?>><a href="/ssrf1/">SSRF #1</a></li>
             <li <?php if($num=='fi') { echo 'class="active"'; } ?>><a href="/fi/">File Include</a></li>
             <li <?php if($num=='deserialize') { echo 'class="active"'; } ?>><a href="/deserialize/">Désérialization</a></li>
             <li <?php if($num=='race') { echo 'class="active"'; } ?>><a href="/race/">Race condition</a></li>
