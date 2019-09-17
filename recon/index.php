@@ -1,7 +1,7 @@
 <?php
 
 if (strpos($_SERVER["HTTP_USER_AGENT"], "'")) { die("SQL Error.");}
-if (!isset($_COOKIE["last_visit"])) { $_COOKIE["last_visit"] = date();}
+if (!isset($_COOKIE["last_visit"])) { setcookie("last_visit", date("l"));}
 if (isset($_COOKIE["last_visit"]) && strpos($_COOKIE["last_visit"], "'")) { die("SQL Error.");}
 ?>
 <!DOCTYPE html>
