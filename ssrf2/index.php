@@ -1,8 +1,13 @@
 <?php
+if (isset($_GET["source"])) die(highlight_file(__FILE__));
 if(isset($_GET['url'])){
     $url = $_GET["url"];
     $parts = parse_url($url);
-    if (in_array($parts["host"], array("localhost", "127.0.0.1", "0.0.0.0"))) die("Not allowed.");
+    if (!in_array($parts["scheme"], array("http","https"))) die("wrong schema, http(s) only!");
+    $ip = gethostbyname($parts["host"]);
+
+    // make sure IP is not local
+    if (filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE |  FILTER_FLAG_NO_RES_RANGE)) die("local IP not allowed!");
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -52,7 +57,7 @@ if(isset($_GET['url'])){
 
       <div class="starter-template">
         <h1>SSRF</h1>
-        <p class="lead">Récupérez le contenu du fichier http://172.17.0.2/ssrf1/secret/1 (accessible seulement depuis 127.0.0.1)</p>
+        <p class="lead">Récupérez le contenu du fichier http://172.17.0.2/ssrf2/secret/2 (accessible seulement depuis 127.0.0.1)</p>
         <form id="my_form" action="">
           <div class="form-group">
             <b>Website to proxy</b> : <input type="text" class="form-control" name="url" id="url" placeholder="https://www.google.com">
@@ -61,6 +66,7 @@ if(isset($_GET['url'])){
             <button type="submit" class="btn btn-default">Submit</button>
           </div>
         </form>
+    <a href="/ssrf2/?source">View source</a>
       </div>
       <?php
         if(isset($_GET['url'])){
