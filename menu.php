@@ -43,3 +43,4 @@ else{
             <li <?php if($num=='ecb') { echo 'class="active"'; } ?>><a href="/ecb/">ECB</a></li>
           </ul>
         </div><!--/.nav-collapse -->
+<style> body { padding-top: 170px; } </style>
