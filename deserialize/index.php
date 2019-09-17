@@ -21,7 +21,8 @@ if(isset($_GET['hl'])) {
     $visitor = unserialize(base64_decode($_COOKIE['visitor']));
   }
   else {
-    setcookie("visitor",base64_encode(serialize(new Visitor($_SERVER['REMOTE_ADDR'],$_SERVER['HTTP_USER_AGENT']))));
+    $ip = isset($_SERVER["HTTP_X_FORWARDED_FOR"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
+    setcookie("visitor",base64_encode(serialize(new Visitor($ip,$_SERVER['HTTP_USER_AGENT']))));
   }
 
 
