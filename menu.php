@@ -18,6 +18,7 @@ else{
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li <?php if($num=='home') { echo 'class="active"'; } ?>><a href="/">Home</a></li>
+            <li <?php if($num=='recon') { echo 'class="active"'; } ?>><a href="/recon/">Recon</a></li>
             <li <?php if($num=='sql1') { echo 'class="active"'; } ?>><a href="/sql1/">SQL #1</a></li>
             <li <?php if($num=='sql2') { echo 'class="active"'; } ?>><a href="/sql2/">SQL #2</a></li>
             <li <?php if($num=='os') { echo 'class="active"'; } ?>><a href="/os/">OS</a></li>
