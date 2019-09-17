@@ -3,10 +3,10 @@ if(isset($_GET['lang'])){
   $lang = $_GET['lang'];
 }
 else{
-  $lang = 'en';
+  $lang = 'en.inc';
 }
 
-include($lang.'.php');
+include($lang);
 
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ include($lang.'.php');
       <div class="starter-template">
         <h1>Inclusion de fichiers</h1>
         <p class="lead">Exécutez du code PHP arbitraire</p>
-        <a href="?lang=en">EN</a> - <a href="?lang=fr">FR</a> - <a href="?lang=cl">Clingon</a>
+        <a href="?lang=en.inc">EN</a> - <a href="?lang=fr.inc">FR</a> - <a href="?lang=cl.inc">Clingon</a>
         <p><?php echo $message; ?></p>
       </div>
 
