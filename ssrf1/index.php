@@ -1,4 +1,5 @@
 <?php
+if (isset($_GET["source"])) die(highlight_file(__FILE__));
 if(isset($_GET['url'])){
     $url = $_GET["url"];
     $parts = parse_url($url);
@@ -61,6 +62,7 @@ if(isset($_GET['url'])){
             <button type="submit" class="btn btn-default">Submit</button>
           </div>
         </form>
+        <a href="/ssrf1/?source">View source</a>
       </div>
       <?php
         if(isset($_GET['url'])){
