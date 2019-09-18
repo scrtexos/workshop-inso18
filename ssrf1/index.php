@@ -52,7 +52,7 @@ if(isset($_GET['url'])){
 
       <div class="starter-template">
         <h1>SSRF</h1>
-        <p class="lead">Récupérez le contenu du fichier http://172.17.0.2/ssrf1/secret/1 (accessible seulement depuis 127.0.0.1)</p>
+        <p class="lead">Récupérez le contenu du fichier /ssrf1/secret/1 (dans le web-root, accessible seulement depuis 127.0.0.1)</p>
         <form id="my_form" action="">
           <div class="form-group">
             <b>Website to proxy</b> : <input type="text" class="form-control" name="url" id="url" placeholder="https://www.google.com">
