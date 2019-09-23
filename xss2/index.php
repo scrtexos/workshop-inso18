@@ -5,12 +5,12 @@ if(!isset($_GET['title'])){
 if(isset($_POST['message'])){
 
   $message = explode('title=', $_POST['message'], 2);
-  $domain = parse_url($_POST['message'],PHP_URL_HOST);
+  $domain = $_SERVER["HTTP_HOST"];
   $msg=$_POST['message'];
   $find = preg_match("#(http://[^ ]+)#",$_POST['message'], $message);
   if($find == 1){
 //print(str_replace('\'','\\\'',$msg));
-    $cmd = 'phantomjs bot.js "'.$msg.'" '.$domain;
+    $cmd = 'phantomjs bot.js '.escapeshellarg($msg).' '.escapeshellarg($domain);
    //print($cmd);
     shell_exec($cmd);
   }
