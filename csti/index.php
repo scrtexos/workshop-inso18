@@ -3,9 +3,11 @@ if(isset($_POST['message_admin'])){
   $msg=$_POST['message_admin'];
   if(filter_var($_POST['message_admin'], FILTER_VALIDATE_URL)){
 //print(str_replace('\'','\\\'',$msg));
-    $domain = parse_url($_POST['message_admin'],PHP_URL_HOST);
-    $cmd = 'phantomjs bot.js "'.$_POST['message_admin'].'" '.$domain;
+    $domain = $_SERVER["HTTP_HOST"];
+    $cmd = 'phantomjs bot.js '.escapeshellarg($_POST['message_admin']).' '.escapeshellarg($domain);
     shell_exec($cmd);
+  } else {
+      echo "INVALID URL: " . $_POST["message_admin"]; exit;
   }
 
 }
